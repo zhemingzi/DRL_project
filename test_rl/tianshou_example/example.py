@@ -6,7 +6,7 @@ import tianshou as ts
 # 定义一些超参数：
 
 task = 'CartPole-v1'
-lr, epoch, batch_size = 1e-3, 5, 64
+lr, epoch, batch_size = 1e-3, 10, 64
 train_num, test_num = 10, 100
 gamma, n_step, target_freq = 0.9, 3, 320
 buffer_size = 20000
@@ -67,9 +67,9 @@ result = ts.trainer.OffpolicyTrainer(
 ).run()
 print(f"Finished training in {result.timing.total_time} seconds")
 
-# # 保存/加载经过训练的策略（与加载完全相同）：torch.nn.module
+# 保存/加载经过训练的策略（与加载完全相同）：torch.nn.module
 
-# torch.save(policy.state_dict(), 'dqn.pth')
+torch.save(policy.state_dict(), 'test_rl/tianshou_example/dqn.pth')
 # policy.load_state_dict(torch.load('dqn.pth'))
 
 # # 以 35 FPS 观看代理：
